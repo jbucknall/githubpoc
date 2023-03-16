@@ -1,0 +1,27 @@
+name: Deployment
+
+on: push
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'no-op'
+        run: echo "::no-op"
+
+  Build:
+    runs-on: ubuntu-latest
+    needs: Test
+    steps:
+      - name: 'no-op'
+        run: echo "::no-op"
+
+  Production:
+    runs-on: ubuntu-latest
+    needs: Staging
+    environment:
+      name: production
+      url: https://ivanti.com
+    steps:
+      - name: 'no-op'
+        run: echo "::no-op"
